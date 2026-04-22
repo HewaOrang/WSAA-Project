@@ -1,12 +1,10 @@
 from flask import Flask, jsonify, request, abort
 from flask_cors import CORS, cross_origin
-app = Flask(__name__)
-cors = CORS(app)  # allow CORS for all domains on all routes.
-app.config['CORS_HEADERS'] = 'Content-Type'
-
 from BookDAO import bookDAO
 
 app = Flask(__name__, static_url_path='', static_folder='.')
+cors = CORS(app)  # allow CORS for all domains on all routes.
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/')
 @cross_origin()
@@ -73,4 +71,4 @@ def delete(id):
     return jsonify({"done": True})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='127.0.0.1', port=5000)
