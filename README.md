@@ -75,48 +75,11 @@ WSAA-Project-New/
 - Book table definition with columns: id, title, author, price
 - Sample data for testing
 
-## Setup Instructions
+## Live Application
 
-### 1. Create Virtual Environment (Optional but Recommended)
-```bash
-python -m venv venv
-venv\Scripts\activate  # On Windows
-# or
-source venv/bin/activate  # On macOS/Linux
-```
+This application is currently hosted on PythonAnywhere:
 
-### 2. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Create Database
-```bash
-# Using sqlite3 command line
-sqlite3 wsaaproject.db < schema.sql
-
-# Or using Python
-import sqlite3
-conn = sqlite3.connect('wsaaproject.db')
-cursor = conn.cursor()
-with open('schema.sql', 'r') as f:
-    cursor.executescript(f.read())
-conn.commit()
-conn.close()
-```
-
-### 4. Run the Server
-```bash
-python server.py
-```
-
-The server will start at `http://127.0.0.1:5000`
-
-### 5. Access the Application
-Open your browser and navigate to:
-```
-http://127.0.0.1:5000/bookviewer.html
-```
+🌐 **[https://hewaorang.pythonanywhere.com/bookviewer.html](https://hewaorang.pythonanywhere.com/bookviewer.html)**
 
 ## Features
 
