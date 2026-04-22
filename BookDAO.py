@@ -1,6 +1,6 @@
 # Book DAO 
 # This is a demonstration of a data layer that connects to a database
-# Author: Andrew Beatty
+# Author: Hewa Orang
 import sqlite3
 import dbconfig as cfg
 from os import path

@@ -2,6 +2,8 @@
 
 A web application for managing books with a Flask backend API and JavaScript frontend using AJAX.
 
+**Author:** Hewa Orang
+
 ## Project Structure
 
 ```
