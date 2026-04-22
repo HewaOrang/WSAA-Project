@@ -1,10 +1,23 @@
 from flask import Flask, jsonify, request, abort
-from flask_cors import CORS, cross_origin
 from BookDAO import bookDAO
 
+# Try to import CORS, but make it optional for PythonAnywhere deployments
+try:
+    from flask_cors import CORS, cross_origin
+    CORS_AVAILABLE = True
+except ImportError:
+    CORS_AVAILABLE = False
+    # Define dummy cross_origin decorator if flask_cors not available
+    def cross_origin(*args, **kwargs):
+        def decorator(f):
+            return f
+        return decorator
+
 app = Flask(__name__, static_url_path='', static_folder='.')
-cors = CORS(app)  # allow CORS for all domains on all routes.
-app.config['CORS_HEADERS'] = 'Content-Type'
+
+if CORS_AVAILABLE:
+    cors = CORS(app)  # allow CORS for all domains on all routes.
+    app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/')
 @cross_origin()
